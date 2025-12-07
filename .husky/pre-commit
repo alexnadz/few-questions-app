@@ -1,0 +1,14 @@
+#!/bin/sh
+echo "🔍 Running TypeScript type checking..."
+if ! npm run type-check; then
+  echo "❌ TypeScript type checking failed! Please fix the type errors before committing."
+  exit 1
+fi
+
+echo "🔍 Running linting..."
+if ! npm run lint; then
+  echo "❌ Linting failed! Please fix the errors before committing."
+  exit 1
+fi
+
+echo "✅ Pre-commit checks passed!"
